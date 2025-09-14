@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}Inventario - GutiNet{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="bi bi-clipboard-data"></i> Gestión de Inventario</h2>
+</div>
+
+<div class="card shadow">
+    <div class="card-header bg-light">
+        <h5 class="card-title mb-0">Estado del Inventario</h5>
+    </div>
+    <div class="card-body">
+        {% if inventario %}
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Ubicación</th>
+                        <th>Última Actualización</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in inventario %}
+                    <tr>
+                        <td><strong>{{ item.id }}</strong></td>
+                        <td>{{ item.producto_nombre }}</td>
+                        <td>
+                            <span class="badge {% if item.cantidad > 20 %}bg-success{% elif item.cantidad > 10 %}bg-warning{% else %}bg-danger{% endif %}">
+                                {{ item.cantidad }} unidades
+                            </span>
+                        </td>
+                        <td>{{ item.ubicacion }}</td>
+                        <td>{{ item.fecha_actualizacion.strftime('%Y-%m-%d %H:%M') }}</td>
+                        <td>
+                            {% if item.cantidad > 20 %}
+                                <span class="badge bg-success">Disponible</span>
+                            {% elif item.cantidad > 10 %}
+                                <span class="badge bg-warning">Bajo Stock</span>
+                            {% else %}
+                                <span class="badge bg-danger">Crítico</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <i class="bi bi-clipboard-x text-muted" style="font-size: 3rem;"></i>
+            <h4 class="text-muted mt-3">No hay datos de inventario</h4>
+            <p class="text-muted">Los datos de inventario se mostrarán aquí.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-success mb-3">
+            <div class="card-body text-center">
+                <i class="bi bi-check-circle fs-1"></i>
+                <h5>Stock Saludable</h5>
+                <p>> 20 unidades</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-warning mb-3">
+            <div class="card-body text-center">
+                <i class="bi bi-exclamation-triangle fs-1"></i>
+                <h5>Bajo Stock</h5>
+                <p>10-20 unidades</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-danger mb-3">
+            <div class="card-body text-center">
+                <i class="bi bi-exclamation-circle fs-1"></i>
+                <h5>Stock Crítico</h5>
+                <p>< 10 unidades</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,6 +1,95 @@
 {% extends "base.html" %}
 
+{% block title %}Acerca de - GutiNet{% endblock %}
+
 {% block content %}
-<h2>Acerca de</h2>
-<p>Guti-Net es un proyecto simple en Flask para demostrar estructura y navegación básica.</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h3 class="card-title mb-0">
+                    <i class="bi bi-info-circle"></i> Acerca de GutiNet
+                </h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>¿Qué es GutiNet?</h4>
+                        <p>GutiNet es un sistema de gestión empresarial diseñado para ayudar a las empresas a administrar sus productos, inventario y clientes de manera eficiente.</p>
+                        
+                        <h4>Nuestra Misión</h4>
+                        <p>Proporcionar herramientas intuitivas y poderosas para simplificar la gestión empresarial y mejorar la productividad.</p>
+                        
+                        <h4>Características Principales</h4>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle text-success"></i>
+                                Gestión completa de productos
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle text-success"></i>
+                                Control de inventario en tiempo real
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle text-success"></i>
+                                Administración de clientes
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle text-success"></i>
+                                Interfaz intuitiva y responsive
+                            </li>
+                            <li class="list-group-item">
+                                <i class="bi bi-check-circle text-success"></i>
+                                Operaciones CRUD completas
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <h4>Tecnologías Utilizadas</h4>
+                        <div class="row text-center">
+                            <div class="col-4 mb-3">
+                                <div class="p-3 border rounded">
+                                    <i class="bi bi-filetype-py fs-1 text-primary"></i>
+                                    <h6>Python</h6>
+                                </div>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <div class="p-3 border rounded">
+                                    <i class="bi bi-database fs-1 text-warning"></i>
+                                    <h6>MySQL</h6>
+                                </div>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <div class="p-3 border rounded">
+                                    <i class="bi bi-bootstrap fs-1 text-purple"></i>
+                                    <h6>Bootstrap</h6>
+                                </div>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <div class="p-3 border rounded">
+                                    <i class="bi bi-flower1 fs-1 text-success"></i>
+                                    <h6>Flask</h6>
+                                </div>
+                            </div>
+                            <div class="col-4 mb-3">
+                                <div class="p-3 border rounded">
+                                    <i class="bi bi-code-slash fs-1 text-info"></i>
+                                    <h6>HTML/CSS/JS</h6>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h4>Contacto</h4>
+                        <p>Para más información sobre GutiNet, puedes contactarnos:</p>
+                        <p>
+                            <i class="bi bi-envelope"></i> Email: info@gutinet.com<br>
+                            <i class="bi bi-telephone"></i> Teléfono: +1 (555) 123-4567
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
